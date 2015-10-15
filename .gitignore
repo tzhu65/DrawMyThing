@@ -3,3 +3,5 @@ node_modules
 npm-debug.log
 filelog*
 public/javascripts/build/*
+public/libraries/
+public/stylesheets/css/

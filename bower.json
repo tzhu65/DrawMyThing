@@ -1,0 +1,23 @@
+{
+  "name": "ExpressDeluxe",
+  "version": "0.0.1",
+  "authors": [
+    "tzhu65 <tzhu65@gmail.com>"
+  ],
+  "description": "N/A",
+  "main": "./bin/www",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "https://github.com/tzhu65/ExpressDeluxe/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "bootstrap-sass-official#~3.3.5"
+  }
+}

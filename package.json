@@ -19,6 +19,7 @@
     "gulp": "^3.9.0",
     "gulp-jshint": "^1.11.2",
     "gulp-nodemon": "^2.0.4",
+    "gulp-sass": "^2.0.4",
     "react": "^0.14.0",
     "reactify": "^1.1.1",
     "require-dir": "^0.3.0",

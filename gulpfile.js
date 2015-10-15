@@ -6,6 +6,7 @@ var tasks = requireDir('./tasks');
 
 gulp.task('default', function() {
   runSequence('react-render',
+              'sass',
               'nodemon'
             );
 });
