@@ -9,7 +9,9 @@ var fileDebugTransport = new (winston.transports.File)({
 var fileInfoTransport = new (winston.transports.File)({
   name: 'info-file',
   filename: 'filelog-info.log',
-  level: 'info'
+  level: 'info',
+  json: false,
+  prettyPrint: true
 });
 
 var fileErrorTransport = new (winston.transports.File)({
@@ -20,7 +22,8 @@ var fileErrorTransport = new (winston.transports.File)({
 
 var consoleTransport = new (winston.transports.Console)({
   name: 'console',
-  level: 'debug'
+  level: 'debug',
+  timestamp: true
 });
 
 var logger = new (winston.Logger)({
