@@ -8,5 +8,5 @@ gulp.task('react-render', function() {
     .transform(reactify)
     .bundle()
     .pipe(source('app.js'))
-    .pipe(gulp.dest('public/javascripts/build/'))
+    .pipe(gulp.dest('public/javascripts/build/'));
 });

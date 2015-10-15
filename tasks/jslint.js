@@ -5,6 +5,7 @@ gulp.task('lintjs', function() {
   return gulp.src([
     '!./node_modules',
     '!./node_modules/**',
+    '!./public/javascripts/build/*',
     '**/*.js'
   ], {matchBase: true})
     .pipe(jshint())
