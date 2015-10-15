@@ -9,6 +9,6 @@ gulp.task('lintjs', function() {
     '!./public/libraries/**',
     '**/*.js'
   ], {matchBase: true})
-    .pipe(jshint())
+    .pipe(jshint({esnext: true}))
     .pipe(jshint.reporter('default'));
 });
