@@ -1,9 +1,9 @@
 var React = require('react');
 
 module.exports = React.createClass({
-render: function() {
+  render: function() {
     return (
-    <h1>Hello, world from a lol React.js Component!</h1>
+      <h1>Hello, world lol from a lol React.js Component!</h1>
     )
-}
+  }
 });
