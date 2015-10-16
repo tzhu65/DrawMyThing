@@ -1,4 +1,4 @@
-# ExpressDeluxe
+# DrawMyThing
 Technologies Used:
 * Node/Express
 * CouchDB
