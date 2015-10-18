@@ -1,0 +1,94 @@
+var $ = jQuery;
+
+$(document).ready(function(){
+
+  // auto focus on the text input
+  var userTextInput = $('#username-text-input');
+  userTextInput.focus();
+  userTextInput.select();
+  $(document).on("click",function() {
+    userTextInput.focus();
+  });
+
+  // hide initial message
+  var message = $('#user-form-msg');
+  message.css('opacity', '0');
+
+  // submit form while on same page
+  var form = $('#new-user-form');
+  form.submit(function(e) {
+    e.preventDefault();
+    var formAction = $(this).attr('action');
+    var username = $('#username-text-input').val();
+    var valid = formValidation(username);
+    if (valid) {
+      var formData = {username: username};
+      $.ajax({
+        url: '/users',
+        type: 'POST',     // try uppercase, 'post' !== 'POST', dont know if this must be uppercase or can be lowercase
+        data: formData, // or try  $(this).serializeArray()
+        success: function(html) {
+          if (message.css('opacity') != 0) {
+            message.animate({opacity: 0}, 1000, function() {
+              message.text('It worked...');
+              message.animate({opacity: 1}, 1000);
+            })
+          } else {
+            message.text('It worked...');
+            message.animate({opacity: 1}, 1000);
+          }
+        }
+      });
+    }
+    return false;
+  });
+});
+
+var formValidation = function(usrname) {
+  var message = $('#user-form-msg');
+  var errors = false;
+  var submissionMessage = '';
+
+  // check length first
+  if (usrname.length > 20) {
+    submissionMessage = 'Must be under 20 characters long';
+    errors = true;
+  }
+
+  // check valid characters
+  var letters = "^[0-9a-zA-Z]+$";
+  if(!usrname.match(letters)) {
+    submissionMessage = 'Can only contain alpha-numeric characters';
+    errors = true;
+  }
+
+  // fade messages
+  if (errors) {
+    if (message.css('opacity') != 0) {
+      message.animate({opacity: 0}, 1000, function() {
+        message.text(submissionMessage);
+        message.animate({opacity: 1}, 1000);
+      });
+    } else {
+      message.text(submissionMessage);
+      message.animate({opacity: 1}, 1000);
+    }
+    return false;
+  } else {
+
+    // passed validation
+    submissionMessage = 'Sending request...';
+    if (message.css('opacity') != 0) {
+      message.animate({opacity: 0}, 1000, function() {
+        message.text(submissionMessage);
+        message.animate({opacity: 1}, 1000);
+      });
+    } else {
+      message.text(submissionMessage);
+      message.animate({opacity: 1}, 1000);
+    }
+    return true;
+  };
+};
+
+module.exports = formValidation;
