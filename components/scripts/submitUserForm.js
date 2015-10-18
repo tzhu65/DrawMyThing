@@ -28,13 +28,20 @@ $(document).ready(function(){
         type: 'POST',     // try uppercase, 'post' !== 'POST', dont know if this must be uppercase or can be lowercase
         data: formData, // or try  $(this).serializeArray()
         success: function(html) {
+          var submissionMessage;
+          console.log(html);
+          if (html === 'fail') {
+            submissionMessage = 'Name already taken...';
+          } else {
+            submissionMessage = 'It worked...';
+          }
           if (message.css('opacity') != 0) {
             message.animate({opacity: 0}, 1000, function() {
-              message.text('It worked...');
+              message.text(submissionMessage);
               message.animate({opacity: 1}, 1000);
             })
           } else {
-            message.text('It worked...');
+            message.text(submissionMessage);
             message.animate({opacity: 1}, 1000);
           }
         }
@@ -49,16 +56,19 @@ var formValidation = function(usrname) {
   var errors = false;
   var submissionMessage = '';
 
-  // check length first
-  if (usrname.length > 20) {
-    submissionMessage = 'Must be under 20 characters long';
-    errors = true;
-  }
-
   // check valid characters
   var letters = "^[0-9a-zA-Z]+$";
   if(!usrname.match(letters)) {
     submissionMessage = 'Can only contain alpha-numeric characters';
+    errors = true;
+  }
+
+  // check length
+  if (usrname.length === 0) {
+    submissionMessage = 'Must not be empty';
+    errors = true;
+  } else if (usrname.length > 20) {
+    submissionMessage = 'Must be under 20 characters long';
     errors = true;
   }
 
