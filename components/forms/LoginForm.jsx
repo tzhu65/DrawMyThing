@@ -5,18 +5,18 @@ var UsernameSubmit = require('./UsernameSubmit.jsx');
 var PasswordForm = require('./PasswordForm.jsx');
 var submitUserForm = require('../scripts/submitUserForm');
 
-var NewUserform = React.createClass({
+var LoginForm = React.createClass({
 
   render: function() {
     return (
       <form className="form-group" id="new-user-form" action="">
         <UsernameForm />
         <PasswordForm />
-        <UsernameSubmit value="Submit"/>
+        <UsernameSubmit value="Login"/>
         <FormMessage />
       </form>
     )
   }
 });
 
-module.exports = NewUserform;
+module.exports = LoginForm;

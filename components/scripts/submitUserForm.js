@@ -30,7 +30,8 @@ $(document).ready(function(){
         success: function(html) {
           var submissionMessage;
           console.log(html);
-          if (html === 'fail') {
+          console.log(html.code);
+          if (html.code === '11') {
             submissionMessage = 'Name already taken...';
           } else {
             submissionMessage = 'It worked...';
@@ -57,7 +58,7 @@ var formValidation = function(usrname) {
   var submissionMessage = '';
 
   // check valid characters
-  var letters = "^[0-9a-zA-Z]+$";
+  var letters = "^[\\sA-Za-z0-9_\\-\\.]+$";
   if(!usrname.match(letters)) {
     submissionMessage = 'Can only contain alpha-numeric characters';
     errors = true;

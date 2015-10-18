@@ -8,8 +8,9 @@ var $ = jQuery;
 var HelloWorld = require('../../../components/HelloWorld.jsx');
 var Locations = require('../../../components/Locations.jsx');
 var NewUserForm = require('../../../components/forms/NewUserForm.jsx');
+var LoginForm = require('../../../components/forms/LoginForm.jsx');
 
 ReactDOM.render(
-  <NewUserForm />,
+  <LoginForm />,
   document.getElementById('new-usr-form')
 );

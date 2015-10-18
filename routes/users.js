@@ -10,12 +10,21 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
   var username = req.body.username;
+  var response;
   createUser(username).then(function(body) {
-    console.log('it worked...');
-    res.send('pass');
+    response = {
+      status: '201',
+      message: 'username created',
+      code: '10'
+    }
+    res.send(response);
   }, function(err) {
-    console.log('it failed...');
-    res.send('fail');
+    response = {
+      status: '409',
+      message: 'username already exists',
+      code: '11'
+    }
+    res.send(response);
   });
 });
 

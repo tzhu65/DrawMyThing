@@ -14,7 +14,7 @@ var UsernameSubmit = React.createClass({
       <input
         type="submit"
         className="btn btn-default"
-        value="Enter"
+        value={this.props.value}
         style={styles}
       />
     )
