@@ -7,10 +7,18 @@ var $ = jQuery;
 
 var HelloWorld = require('../../../components/HelloWorld.jsx');
 var Locations = require('../../../components/Locations.jsx');
-var NewUserForm = require('../../../components/forms/NewUserForm.jsx');
 var LoginForm = require('../../../components/forms/LoginForm.jsx');
+var HeaderNavBar = require('../../../components/header/HeaderNavBar.jsx');
+var RegistrationForm = require('../../../components/forms/RegistrationForm.jsx');
+
 
 ReactDOM.render(
-  <LoginForm />,
+  <RegistrationForm />,
   document.getElementById('new-usr-form')
 );
+
+ReactDOM.render(
+  <HeaderNavBar />,
+  document.getElementById('header-nav-bar')
+);
+	

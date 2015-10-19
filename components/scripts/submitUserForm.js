@@ -6,20 +6,19 @@ $(document).ready(function(){
   var userTextInput = $('#username-text-input');
   userTextInput.focus();
   userTextInput.select();
-  $(document).on("click",function() {
-    userTextInput.focus();
-  });
 
   // hide initial message
   var message = $('#user-form-msg');
   message.css('opacity', '0');
 
   // submit form while on same page
-  var form = $('#new-user-form');
+  var form = $('#user-login-form');
   form.submit(function(e) {
     e.preventDefault();
     var formAction = $(this).attr('action');
     var username = $('#username-text-input').val();
+    var button = $('#submit-button');
+    button.animate({opacity: 0.25}, 1000);
     var valid = formValidation(username);
     if (valid) {
       var formData = {username: username};
@@ -31,6 +30,8 @@ $(document).ready(function(){
           var submissionMessage;
           console.log(html);
           console.log(html.code);
+
+          // fade the message
           if (html.code === '11') {
             submissionMessage = 'Name already taken...';
           } else {
@@ -45,6 +46,10 @@ $(document).ready(function(){
             message.text(submissionMessage);
             message.animate({opacity: 1}, 1000);
           }
+
+          // fade button
+          button.animate({opacity: 1}, 1000);
+          // button.css('opacity', '1');
         }
       });
     }
@@ -84,6 +89,7 @@ var formValidation = function(usrname) {
       message.text(submissionMessage);
       message.animate({opacity: 1}, 1000);
     }
+    $('#submit-button').animate({opacity: 1}, 1000);
     return false;
   } else {
 
