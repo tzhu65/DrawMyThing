@@ -16,9 +16,12 @@ pages.pageComponents = {
     'about-info-box',
     'header-return-button'
   ],
-  GAME: []
+  GAME: [
+    'dmt-frame'
+  ]
 };
 
+pages.currentPage = '';
 pages.previousPage = '';
 
 module.exports = pages;

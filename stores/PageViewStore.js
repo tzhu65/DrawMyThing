@@ -8,8 +8,14 @@ class PageViewStore {
   constructor() {
     this.isTransitioning = false;
     this.pages = pages;
-    pages.currentPage = 'LOGIN';
-    pages.previousPage = 'LOGIN';
+    if (newUser) {
+      pages.currentPage = 'LOGIN';
+      pages.previousPage = 'LOGIN';
+    } else {
+      pages.currentPage = 'GAME';
+      pages.previousPage = 'GAME';
+    }
+
 
     this.bindListeners({
       transitionToNewPage: ChangePageActions.TRANSITION

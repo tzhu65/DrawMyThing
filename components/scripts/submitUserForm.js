@@ -1,4 +1,5 @@
 var $ = jQuery;
+var ChangePageActions = require('../../actions/ChangePageActions');
 
 $(document).ready(function(){
 
@@ -28,6 +29,7 @@ $(document).ready(function(){
             submissionMessage = 'Name already taken...';
           } else {
             submissionMessage = 'It worked...';
+            ChangePageActions.transition('GAME');
           }
           if (message.css('opacity') !== 0) {
             message.animate({opacity: 0}, 1000, function() {

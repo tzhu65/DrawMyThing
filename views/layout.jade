@@ -8,6 +8,8 @@ html
     meta(name='author', content='Hello')
     link(rel='icon', href='/favicon.ico')
     link(rel='stylesheet', href='/stylesheets/css/style.css')
+    script(type='text/javascript').
+      var newUser =!{JSON.stringify(newUser)}
     title=title
 
   body
@@ -19,9 +21,9 @@ html
             .body-group
               #new-usr-form
               #about-info
+              #draw-my-thing-main
           .mastfoot
             .inner
-              p
 
     block content
     script(src='javascripts/build/app.js')

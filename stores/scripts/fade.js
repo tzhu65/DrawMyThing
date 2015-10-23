@@ -37,8 +37,6 @@ fade.unhideComponent = function(componentId) {
 };
 
 fade.fadeComponents = function(components, callback, componentCallback) {
-  console.log('fading the components:');
-  console.log(components);
   async.each(components, function(componentId, cb) {
     var component = $('#' + componentId);
     component.animate({opacity: 0}, fadeOutTime, function() {
@@ -71,8 +69,6 @@ fade.fadeAndHideAllActive = function(callback, componentCallback) {
 };
 
 fade.fadeInComponents = function(components, callback, componentCallback) {
-  console.log('fading in components:');
-  console.log(components);
   async.each(components, function(componentId, cb) {
     var component = $('#' + componentId);
     component.animate({opacity: 1}, fadeInTime, function() {

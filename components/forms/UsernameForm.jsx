@@ -1,5 +1,7 @@
 var React = require('react');
 
+var $ = jQuery;
+
 var UsernameForm = React.createClass({
 
   onKeyUp: function(event) {
