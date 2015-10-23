@@ -1,22 +1,22 @@
 var React = require('react');
-var HeaderRegisterButton = require('./HeaderRegisterButton.jsx');
 var $ = jQuery;
+
+var HeaderAboutButton = require('./HeaderAboutButton.jsx');
+var HeaderReturnButton = require('./HeaderReturnButton.jsx');
+
+var PageViewStore = require('../../stores/PageViewStore');
 
 var HeaderNavBar = React.createClass({
 
   render: function() {
 
-    var styles = {
-      position: 'absolute',
-      right: '0px'
-    }
-
     return (
-      <div className="masthead clearfix" style={styles}>
+      <div id="header-nav-bar" className="masthead clearfix header-nav-bar">
         <div className="inner">
           <nav>
             <ul className="nav masthead-nav">
-              <HeaderRegisterButton value="Register" />
+              <HeaderAboutButton />
+              <HeaderReturnButton />
             </ul>
           </nav>
         </div>

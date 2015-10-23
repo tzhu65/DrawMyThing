@@ -1,0 +1,11 @@
+/* Make sure the header is always aligned to the top right */
+.header-nav-bar {
+  position: absolute;
+  right: 0px;
+}
+
+.header-nav-bar-btn {
+  border: 0px solid white;
+  color: white;
+  background: transparent;
+}

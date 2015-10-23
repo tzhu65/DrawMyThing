@@ -2,15 +2,6 @@ var $ = jQuery;
 
 $(document).ready(function(){
 
-  // auto focus on the text input
-  var userTextInput = $('#username-text-input');
-  userTextInput.focus();
-  userTextInput.select();
-
-  // hide initial message
-  var message = $('#user-form-msg');
-  message.css('opacity', '0');
-
   // submit form while on same page
   var form = $('#user-login-form');
   form.submit(function(e) {
@@ -18,6 +9,7 @@ $(document).ready(function(){
     var formAction = $(this).attr('action');
     var username = $('#username-text-input').val();
     var button = $('#submit-button');
+    var message = $('#user-form-msg');
     button.animate({opacity: 0.25}, 1000);
     var valid = formValidation(username);
     if (valid) {
@@ -37,11 +29,11 @@ $(document).ready(function(){
           } else {
             submissionMessage = 'It worked...';
           }
-          if (message.css('opacity') != 0) {
+          if (message.css('opacity') !== 0) {
             message.animate({opacity: 0}, 1000, function() {
               message.text(submissionMessage);
               message.animate({opacity: 1}, 1000);
-            })
+            });
           } else {
             message.text(submissionMessage);
             message.animate({opacity: 1}, 1000);
@@ -49,7 +41,6 @@ $(document).ready(function(){
 
           // fade button
           button.animate({opacity: 1}, 1000);
-          // button.css('opacity', '1');
         }
       });
     }
@@ -80,7 +71,7 @@ var formValidation = function(usrname) {
 
   // fade messages
   if (errors) {
-    if (message.css('opacity') != 0) {
+    if (message.css('opacity') !== 0) {
       message.animate({opacity: 0}, 1000, function() {
         message.text(submissionMessage);
         message.animate({opacity: 1}, 1000);
@@ -95,7 +86,7 @@ var formValidation = function(usrname) {
 
     // passed validation
     submissionMessage = 'Sending request...';
-    if (message.css('opacity') != 0) {
+    if (message.css('opacity') !== 0) {
       message.animate({opacity: 0}, 1000, function() {
         message.text(submissionMessage);
         message.animate({opacity: 1}, 1000);
@@ -105,7 +96,7 @@ var formValidation = function(usrname) {
       message.animate({opacity: 1}, 1000);
     }
     return true;
-  };
+  }
 };
 
 module.exports = formValidation;

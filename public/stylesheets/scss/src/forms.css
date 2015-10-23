@@ -1,0 +1,25 @@
+.form-message {
+  display: block;
+  visibility: visible;
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+}
+
+.form-submit-btn {
+  border: 1px solid white!important;
+  color: white!important;
+  background: transparent!important;
+  -webkit-appearance: none!important;
+  outline: none!important;
+}
+
+.form-usrname-input {
+  background-color: transparent;
+  border: 0px solid white;
+  text-align: center;
+  color: transparent;
+  text-shadow: 0 0 0 white;
+  outline: none;
+  -webkit-appearance: none;
+}

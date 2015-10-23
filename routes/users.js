@@ -16,14 +16,14 @@ router.post('/', function(req, res, next) {
       status: '201',
       message: 'username created',
       code: '10'
-    }
+    };
     res.send(response);
   }, function(err) {
     response = {
       status: '409',
       message: 'username already exists',
       code: '11'
-    }
+    };
     res.send(response);
   });
 });
