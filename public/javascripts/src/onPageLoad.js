@@ -1,11 +1,7 @@
 var $ = jQuery;
 
 $(document).ready(function(){
-
-  openComponents.push('header-about-button',
-    'user-login-form'
-  );
-
+  
   // auto focus on the text input
   var userTextInput = $('#username-text-input');
   userTextInput.focus();
