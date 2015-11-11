@@ -6,6 +6,10 @@ var checkUserValid = require('../util/scripts/checkUserValid');
 
 var filePath = '/routes/index.js';
 
+router.get('/hey', function(Req, res, next) {
+  res.send('hey there');
+});
+
 /* GET home page */
 router.get('/', function(req, res, next) {
   var username = req.cookies.username;
