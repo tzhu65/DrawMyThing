@@ -1,6 +1,7 @@
 var socket = io();
 var $ = jQuery;
 
+
 $(document).ready(function(){
 
   // submit form while on same page
