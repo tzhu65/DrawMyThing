@@ -4,3 +4,8 @@ npm-debug.log
 filelog*
 public/javascripts/build/*
 public/stylesheets/css/
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

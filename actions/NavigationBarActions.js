@@ -5,7 +5,7 @@ class NavigationBarActions {
   transitioning(isTransitioning) {
     this.dispatch(isTransitioning);
   }
-
+  
 }
 
 module.exports = alt.createActions(NavigationBarActions);

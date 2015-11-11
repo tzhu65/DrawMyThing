@@ -1,14 +1,26 @@
 var React = require('react');
+var $ = jQuery;
+
 var FormMessage = require('./FormMessage.jsx');
-var UsernameForm = require('./UsernameForm.jsx');
 var SubmitButton = require('./SubmitButton.jsx');
-var submitUserForm = require('../scripts/submitUserForm');
+var UsernameForm = require('./UsernameForm.jsx');
+
+var FormActions = require('../../actions/FormActions');
+var FormStore = require('../../stores/FormStore');
 
 var LoginForm = React.createClass({
 
+  componentDidMount: function() {
+    $('#user-login-form').submit(function(e) {
+      e.preventDefault();
+      FormActions.submitUserForm();
+      return false;
+    });
+  },
+
   render: function() {
     return (
-      <form className="form-group" id="user-login-form" action="">
+      <form id="user-login-form" className="form-group" action="" role="form">
         <UsernameForm />
         <SubmitButton value="Enter"/>
         <FormMessage />

@@ -16,7 +16,6 @@ class PageViewStore {
       pages.previousPage = 'GAME';
     }
 
-
     this.bindListeners({
       transitionToNewPage: ChangePageActions.TRANSITION
     });

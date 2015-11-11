@@ -1,5 +1,4 @@
 var React = require('react');
-
 var $ = jQuery;
 
 var UsernameForm = React.createClass({
@@ -19,11 +18,12 @@ var UsernameForm = React.createClass({
       <input
         id="username-text-input"
         className="form-control input-lg form-usrname-input"
-        type="text"
-        placeholder="Username"
         autoComplete="off"
-        spellCheck="false"
+        maxLength="20"
         onKeyUp={this.onKeyUp}
+        placeholder="Username"
+        spellCheck="false"
+        type="text"
       />
     )
   }

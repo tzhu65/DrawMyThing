@@ -1,18 +1,23 @@
+var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var favicon = require('serve-favicon');
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
 
+var log = require('./util/logger');
+var rooms = require('./routes/rooms');
+var lobby = require('./routes/lobby');
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var logger = require('./util/logger');
+
+var filePath = '/app.js';
+
+log.info('Server starting...', {filePath: filePath});
 
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-logger.info('Server starting...');
 app.set('view engine', 'jade');
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -23,6 +28,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/rooms', rooms);
+app.use('/lobby', lobby);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

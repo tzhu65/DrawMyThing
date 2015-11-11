@@ -1,7 +1,7 @@
 var $ = jQuery;
 var ChangePageActions = require('../../../actions/ChangePageActions');
 
-$(document).ready(function(){
+$(document).ready(function() {
 
   // hide initial message
   $('#user-form-msg').css('opacity', '0');
@@ -14,7 +14,6 @@ $(document).ready(function(){
 
     // auto focus on the text input
     var userTextInput = $('#username-text-input');
-    console.log('please work');
     userTextInput.focus();
     userTextInput.select();
   } else {
@@ -26,6 +25,12 @@ $(document).ready(function(){
 
     // go directly into the game homepage
     ChangePageActions.transition('GAME');
+
   }
+
+  // enable all popovers
+  $(function () {
+    $('[data-toggle="popover"]').popover();
+  });
 
 });

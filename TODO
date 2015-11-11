@@ -1,0 +1,48 @@
+Refactor code
+
+
+PRIORITY:
+  join a room
+    set up sockets for the room
+    generate unique id
+  sending Message
+    make sure the room id junk works right
+
+  making canvas
+  refactor and make everything nicely split
+
+
+how to set up the room
+make the transition createRoom -> shift to lobby -> make the room unique
+
+DATABASE STUFF:
+  Set up rooms
+  Set up a chat system
+  Remove old users
+
+AUTHENTICATION:
+
+
+ACTIONS:
+  Join a room
+
+COMPONENTS:
+  Make the core game homepage
+    List of game rooms
+    Lobby
+      Chat
+      Start game
+      Display people
+    In game
+      Chat
+      Random word
+      People go in order
+    Create a new game button
+
+
+backlog
+  finish the new room submission
+  remove the duplicate react component form
+  authentication
+  stylize everything
+  add transitions

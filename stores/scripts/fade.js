@@ -1,17 +1,20 @@
 var async = require('async');
-
-var openComponents = [];
 var $ = jQuery;
 
+const fadeOutTime = 250;
+const fadeInTime = 250;
+
+var openComponents = [];
 var fade = {};
-var fadeOutTime = 1000;
-var fadeInTime = 1000;
 
 fade.performCallbacks = function(callback, componentId) {
   if (callback !== undefined) {
     if (callback.forEach === undefined) {
+
+      // make the callback into an array
       callback = [callback];
     }
+
     callback.forEach(function(cb) {
       if (componentId !== undefined) {
         cb(componentId);

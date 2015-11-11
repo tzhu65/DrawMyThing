@@ -1,0 +1,117 @@
+.room-name-input {
+  background-color: transparent;
+  border: 1px solid white;
+  text-align: center;
+  color: white;
+  outline: none;
+  -webkit-appearance: none!important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+.room-name-input:focus {
+  background-color: transparent;
+  border: 1px solid white;
+  text-align: center;
+  color: white;
+  outline: none;
+  -webkit-appearance: none!important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+.close-room-create {
+  border: 1px solid transparent;
+  color: white;
+  background: transparent;
+}
+
+.close-room-create:hover {
+  border: 1px solid white;
+  color: white;
+  background: transparent;
+}
+
+.form-create-room-input {
+  background-color: transparent;
+  border: 1px solid transparent;
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 0 white;
+  outline: none;
+  -webkit-appearance: none!important;
+  box-shadow: none!important;
+  -moz-box-shadow: none;
+}
+
+.form-create-room-input:hover {
+  background-color: transparent;
+  border: 1px solid white;
+  text-align: center;
+  color: orange;
+  text-shadow: 0 0 0 white;
+  outline: none;
+  -webkit-appearance: none!important;
+  box-shadow: none!important;
+  -moz-box-shadow: none;
+}
+
+.form-create-room-input:focus {
+  background-color: transparent;
+  border: 1px solid white;
+  text-align: center;
+  color: blue;
+  outline: none;
+  -webkit-appearance: none!important;
+  box-shadow: none!important;
+  -moz-box-shadow: none;
+}
+
+.form-create-room-input:active {
+  background-color: transparent;
+  border: 1px solid white;
+  text-align: center;
+  color: yellow;
+  outline: none;
+  -webkit-appearance: none!important;
+  box-shadow: none!important;
+  -moz-box-shadow: none;
+}
+
+.open-room-list {
+  height: 300px!important;
+  overflow: scroll;
+}
+
+.open-room-selected {
+  border: 10px solid brown!important;
+}
+
+.chat-box-container {
+  height: 50vh!important;
+  width: 50vh!important;
+}
+
+.chat-box-area {
+  height: 100%!important;
+  width: 100%!important;
+  overflow-y: auto;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.chat-message {
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+}
+
+.canvas-drawing-board {
+  background: blue;
+  width: 100%!important;
+  height: 100%!important;
+}

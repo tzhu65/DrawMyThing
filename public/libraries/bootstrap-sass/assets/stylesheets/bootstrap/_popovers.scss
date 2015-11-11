@@ -16,7 +16,7 @@
   @include reset-text;
   font-size: $font-size-base;
 
-  background-color: $popover-bg;
+  background-color: black;
   background-clip: padding-box;
   border: 1px solid $popover-fallback-border-color;
   border: 1px solid $popover-border-color;
@@ -59,10 +59,10 @@
   }
 }
 .popover > .arrow {
-  border-width: $popover-arrow-outer-width;
+  border-width: 0;
 }
 .popover > .arrow:after {
-  border-width: $popover-arrow-width;
+  border-width: 0;
   content: "";
 }
 
@@ -99,17 +99,17 @@
   }
   &.bottom > .arrow {
     left: 50%;
-    margin-left: -$popover-arrow-outer-width;
+    margin-left: 0;
     border-top-width: 0;
     border-bottom-color: $popover-arrow-outer-fallback-color; // IE8 fallback
     border-bottom-color: $popover-arrow-outer-color;
-    top: -$popover-arrow-outer-width;
+    top: 0;
     &:after {
       content: " ";
       top: 1px;
-      margin-left: -$popover-arrow-width;
+      margin-left: 0;
       border-top-width: 0;
-      border-bottom-color: $popover-arrow-color;
+      border-bottom-color: 0;
     }
   }
 

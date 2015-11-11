@@ -1,27 +1,33 @@
 var React = require('react');
-var ChangePageActions = require('../../../actions/ChangePageActions');
+var $ = jQuery;
 
+var CreateRoomForm = require('../forms/CreateRoomForm.jsx');
 
 var CreateRoomButton = React.createClass({
 
   openNewRoomForm: function() {
-    console.log('wut wut');
+    $('#create-room-button').popover('toggle');
+    document.onkeyup = function(e) {
+      var keycode = e.keyCode ? e.keyCode : e.which;
+      if (keycode === 27) {
+        $('#create-room-button').popover('hide');
+        document.onkeyup = null;
+      }
+    };
   },
 
   render: function() {
     return (
       <div id="create-room-button"
            className="btn btn-default"
-           data-toggle="popover"
-           title="Popover title"
-           data-content="And here's some amazing content. It's very engaging. Right?"
            onClick={this.openNewRoomForm}>
         <span className="glyphicon glyphicon-plus"></span>
-        <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
-      </div>
+        </div>
     )
   }
 });
+
+// <button type="button" className="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
 
 
 

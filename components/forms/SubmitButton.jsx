@@ -7,8 +7,8 @@ var SubmitButton = React.createClass({
     return (
       <input
         id="submit-button"
-        type="submit"
         className="btn btn-default form-submit-btn"
+        type="submit"
         value={this.props.value}
       />
     )

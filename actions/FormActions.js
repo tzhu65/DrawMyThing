@@ -1,28 +1,34 @@
+var alt = require('../alt');
+var ChangePageActions = require('./ChangePageActions');
+var GamePageActions = require('./GamePageActions');
 var $ = jQuery;
-var ChangePageActions = require('../../actions/ChangePageActions');
+var socket = io();
 
-$(document).ready(function(){
+class FormActions {
 
-  // submit form while on same page
-  var form = $('#user-login-form');
-  form.submit(function(e) {
-    e.preventDefault();
-    var formAction = $(this).attr('action');
+  transitioning(isTransitioning) {
+    this.dispatch(isTransitioning);
+  }
+
+  submitUserForm() {
     var username = $('#username-text-input').val();
-    var button = $('#submit-button');
-    var message = $('#user-form-msg');
-    button.animate({opacity: 0.25}, 1000);
-    var valid = formValidation(username);
+    var formData = {username: username};
+
+    var valid = userFormValidation(username);
     if (valid) {
-      var formData = {username: username};
+      var formAction = $(this).attr('action');
+      var button = $('#submit-button');
+      var message = $('#user-form-msg');
       $.ajax({
         url: '/users',
-        type: 'POST',     // try uppercase, 'post' !== 'POST', dont know if this must be uppercase or can be lowercase
-        data: formData, // or try  $(this).serializeArray()
+        type: 'POST',
+        data: formData,
         success: function(html) {
+
+          USERNAME = html.username;
+
           var submissionMessage;
           console.log(html);
-          console.log(html.code);
 
           // fade the message
           if (html.code === '11') {
@@ -44,13 +50,41 @@ $(document).ready(function(){
           // fade button
           button.animate({opacity: 1}, 1000);
         }
+      })
+    }
+    this.dispatch(formData)
+  }
+
+  submitCreateRoomForm(form) {
+
+    var roomName = $('#room-name-input').val();
+    var roomSize = $('#create-room-size input:radio:checked').val();
+    var formValues = {
+      roomName: roomName,
+      roomSize: roomSize
+    };
+
+    var valid = createRoomFormValidation(formValues);
+    if (valid) {
+      $.ajax({
+        url: '/rooms',
+        type: 'POST',
+        data: formValues,
+        success: function(html) {
+          $('#create-room-button').popover('hide');
+          $('#lobby-chat-room').attr('chatroomId', html.uniqueId);
+          GamePageActions.enterLobby({username: USERNAME, roomName: html.roomName, roomId: html.uniqueId});
+        }
       });
+    } else {
+      console.log('the form is incomplete');
     }
     return false;
-  });
-});
+  }
 
-var formValidation = function(usrname) {
+};
+
+var userFormValidation = function(usrname) {
   var message = $('#user-form-msg');
   var errors = false;
   var submissionMessage = '';
@@ -101,4 +135,35 @@ var formValidation = function(usrname) {
   }
 };
 
-module.exports = formValidation;
+var createRoomFormValidation = function(formValues) {
+  var roomName = formValues.roomName;
+  var roomSize = formValues.roomSize;
+  // var message = $('#user-form-msg');
+  var errors = false;
+  var submissionMessage = '';
+
+  // check valid characters
+  var letters = "^[\\sA-Za-z0-9_\\-\\.]+$";
+  if(!roomName.match(letters)) {
+    submissionMessage = 'Can only contain alpha-numeric characters';
+    errors = true;
+  }
+
+  // check length
+  if (roomName.length === 0) {
+    submissionMessage = 'Must not be empty';
+    errors = true;
+  } else if (roomName.length > 20) {
+    submissionMessage = 'Must be under 20 characters long';
+    errors = true;
+  }
+
+  if (roomSize === undefined) {
+    submissionMessage = 'Please select a room size';
+    errors = true;
+  }
+
+  return !errors;
+};
+
+module.exports = alt.createActions(FormActions);

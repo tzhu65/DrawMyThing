@@ -11,7 +11,7 @@ var FormMessage = React.createClass({
   render: function() {
 
     return (
-      <div className="alert alert-warning form-message" id="user-form-msg" onClick={this.onClickHide}>
+      <div id="user-form-msg" className="alert alert-warning form-message" onClick={this.onClickHide}>
         &nbsp;
       </div>
     )

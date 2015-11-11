@@ -24,12 +24,6 @@ nano.hashCode = function(s){
   },0);
 };
 
-var viewExample = function(doc) {
-
-  // key, value
-  emit(doc._id, doc._rev);
-};
-
 // movies.insert({views: {foo: {map: viewFunc}}}, '_design/example', function(err, body, header) {
 //   if (err) {
 //     console.log(err.message);

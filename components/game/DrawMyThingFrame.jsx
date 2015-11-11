@@ -1,6 +1,7 @@
 var React = require('react');
 
 var HomePage = require('./home/HomePage.jsx');
+var GameScreen = require('./ingame/GameScreen.jsx');
 
 var DrawMyThingFrame = React.createClass({
 
@@ -11,6 +12,7 @@ var DrawMyThingFrame = React.createClass({
           Main Draw My Thing Frame Goes Here
         </p>
         <HomePage />
+        <GameScreen />
       </div>
     )
   }
