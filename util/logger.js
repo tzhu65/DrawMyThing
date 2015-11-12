@@ -29,7 +29,6 @@ var consoleTransport = new (winston.transports.Console)({
 var logger = new (winston.Logger)({
   transports: [
     // Add any transports here
-    fileInfoTransport,
     consoleTransport
   ]
 });
